@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "general_mult": 80,
+    "right_depth_mult": 100,
+    "left_depth_mult": 100,
+    "right_mult": 100,
+    "left_mult": 100,
+    "battery": "LiPo 3S",
+    "stream_res": "640x480",
+    "record_res": "1640x1232",
+    "fps": 24,
+    "recording": false,
+    "water_type": "Salt Water",
+    "depth_offset": 0,
+    "meter_mode": "average",
+    "exposure_mode": "night",
+    "hdd_space": "25.38 GB",
+    "right_depth_invert": false,
+    "left_depth_invert": false,
+    "right_invert": false,
+    "left_invert": false,
+    "tgtHeading": 0,
+    "autoHeading": false,
+    "tgtDepth": 0,
+    "autoDepth": false,
+    "heading_P": 0.6460747,
+    "depth_P": 0.3706282,
+    "balance_P": 0.3085728
+  }
+}
