@@ -1,5 +1,7 @@
 ## Underwater ROV powered by a Raspberry Pi
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ![Schematic](/_schematics/Submarinedraw.png)
 
 This codebase contains the control code for a homemade remotely controlled submarine and the Unity app for an android device that can be used to record video and drive the sub.
@@ -15,6 +17,9 @@ The repository is divided into two parts:
 - */ROVCommander** which is a Unity mobile app that allows for ease of control from a beach or boat
 
 See the subfolder README files for more information on each.
+
+
+-------------
 
 ### Physical Implementation and Vehicle Tests
 
