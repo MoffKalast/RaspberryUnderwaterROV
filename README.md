@@ -14,7 +14,7 @@ The repository is divided into two parts:
 
 - **/Submarine** which contains a NodeJS implementation of the submarine control software, along with video streaming and sensor AHRS, interfacting with the app using Socket.io
 
-- */ROVCommander** which is a Unity mobile app that allows for ease of control from a beach or boat
+- **/ROVCommander** which is a Unity mobile app that allows for ease of control from a beach or boat
 
 See the subfolder README files for more information on each.
 
