@@ -1,6 +1,6 @@
 ## Schematics
 
-![Schematic](/final_side.png)
+![Schematic](/_schematics/final_side.png)
 1. Acrylic dome, 3mm thickness
 2. GoPro mount
 3. Sail/handle for stabilization and carrying
@@ -10,26 +10,26 @@
 7. Pressure hull (PVC sewer pipe)
 8. Rear wings
 
-![Schematic](/final_top.png)
+![Schematic](/_schematics/final_top.png)
 9. Torch mount
 10. Depth control thrusters
 11. Planar motion thrusters
 12. Zip ties
 13. Engine nacelles
 
-![Schematic](/final_bottom.png)
+![Schematic](/_schematics/final_bottom.png)
 14. Access hatch
 15. Fixed tail assembly
 16. Front shield
 17. Detachable tail assembly
 
-![Schematic](/final_front_back.png)
+![Schematic](/_schematics/final_front_back.png)
 18. IMU
 19. Internal camera
 20. IMU/camera mount
 21. UTP cable
 
-![Schematic](/final_cutaway.png)
+![Schematic](/_schematics/final_cutaway.png)
 22. Motor drivers
 23. M5 screw
 24. M3 screw
