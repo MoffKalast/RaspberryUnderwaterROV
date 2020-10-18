@@ -69,7 +69,7 @@ function stop(){
 function getCorrection(){
 
     var diff = (heading-target)%360;
-    var delta = clamp(Math.abs(diff),-100,100);
+    var delta = clamp(Math.abs(diff),0,100);
 
     if(delta > 1){
 		var outPid = delta;

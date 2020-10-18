@@ -2,11 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-![Schematic](/_schematics/Submarinedraw.png)
+![Schematic](/_schematics/draw_side.png)
 
 This codebase contains the control code for a homemade remotely controlled submarine and the Unity app for an android device that can be used to record video and drive the sub.
 
-It uses a Raspberry Pi 2 as its central control unit, a RaspiCam V2 for custom video recording, sensors and drivers as described in the schematic below:
+It uses a Raspberry Pi 2 as its central control unit, a Pi Camera V2 (later with D160 sensor) for custom video recording, sensors and drivers as described in the schematic below:
 
 ![Electronics](/_schematics/RpiElectric4.png)
 
@@ -27,9 +27,8 @@ A test vehicle was constructed out of PVC-U sewer pipe with custom 3D printed PL
 
 ![Electronics](/_schematics/img/20190922_141118.jpg)
 
-The following video contains a short summary on the first round of testing.
+The following video contains a short summary of construction and testing.
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/sjRbOp7FrAE/0.jpg)](http://www.youtube.com/watch?v=sjRbOp7FrAE&)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DufHhX7p4Xk/0.jpg)](https://www.youtube.com/watch?v=DufHhX7p4Xk)
 
 All recorded uncompressed video during testing will be available for download at a later date.
-

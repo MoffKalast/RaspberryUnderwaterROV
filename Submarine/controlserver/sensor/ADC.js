@@ -6,7 +6,7 @@ class ADC{
 
 		this.adc = new ads1x15(1);
 
-		this.voltageChannel = 0;
+		this.voltageChannel = 0
 		this.voltageGain = '4096'; // 256, 512, 1024, 2048, 4096, 6144
 
 		this.pressureChannel = 1;
