@@ -31,4 +31,4 @@ The following video contains a short summary of construction and testing.
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DufHhX7p4Xk/0.jpg)](https://www.youtube.com/watch?v=DufHhX7p4Xk)
 
-All recorded uncompressed video during testing will be available for download at a later date.
+All recorded uncompressed video during testing will be available for download if I ever find a place to host 50GB for free.
