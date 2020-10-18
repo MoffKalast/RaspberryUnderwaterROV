@@ -8,7 +8,7 @@ This codebase contains the control code for a homemade remotely controlled subma
 
 It uses a Raspberry Pi 2 as its central control unit, a Pi Camera V2 (later with D160 sensor) for custom video recording, sensors and drivers as described in the schematic below:
 
-![Electronics](/_schematics/RpiElectric4.png)
+![Electronics](/_schematics/RpiElectric5.png)
 
 The repository is divided into two parts:
 
