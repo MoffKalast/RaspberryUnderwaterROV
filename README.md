@@ -25,7 +25,7 @@ See the subfolder README files for more information on each.
 
 A test vehicle was constructed out of PVC-U sewer pipe with custom 3D printed PLA parts and an acrylic dome, all sealed together using epoxy glue.
 
-![Electronics](/_schematics/img/20190922_141118.jpg)
+![Electronics](/_schematics/img/rovoutside.jpg)
 
 The following video contains a short summary of construction and testing.
 
