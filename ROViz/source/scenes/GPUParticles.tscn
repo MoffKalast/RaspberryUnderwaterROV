@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/smoke.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.996078, 0.996078, 0.996078, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.834146, 1 )
+colors = PoolColorArray( 0.303711, 0.303711, 0.303711, 1, 0.0732422, 0.0732422, 0.0732422, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.15
+direction = Vector3( 0, 1, 0 )
+spread = 30.52
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+radial_accel_random = 0.05
+tangential_accel = -300.0
+tangential_accel_random = 1.0
+damping = 50.0
+angle_random = 0.3
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="QuadMesh" id=7]
+
+[node name="Emitter" type="Particles"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.00694418, 0 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+amount = 200
+lifetime = 0.21
+speed_scale = 0.5
+randomness = 1.0
+visibility_aabb = AABB( -0.123876, -0.104655, -0.141456, 0.247752, 0.246421, 0.293655 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )

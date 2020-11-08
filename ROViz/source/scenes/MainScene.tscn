@@ -1,0 +1,314 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/Submarine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Camera.gd" type="Script" id=2]
+[ext_resource path="res://realistic_water_shader/art/water/Water.material" type="Material" id=3]
+[ext_resource path="res://assets/font.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://realistic_water_shader/art/ground/Ground.material" type="Material" id=5]
+[ext_resource path="res://assets/maxdepth.png" type="Texture" id=6]
+[ext_resource path="res://scripts/GUI.gd" type="Script" id=7]
+[ext_resource path="res://realistic_water_shader/water_env.tres" type="Environment" id=9]
+[ext_resource path="res://assets/grid.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/grid_underwater.obj" type="ArrayMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 2
+albedo_color = Color( 0.505882, 0.745098, 1, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = ExtResource( 5 )
+size = Vector2( 128, 128 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="PlaneMesh" id=4]
+material = ExtResource( 3 )
+size = Vector2( 256, 256 )
+subdivide_width = 256
+subdivide_depth = 256
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+params_cull_mode = 2
+
+[node name="Root" type="Spatial"]
+
+[node name="Underwater" type="Spatial" parent="."]
+
+[node name="Water" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -2, 0 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water2" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -2, 59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water3" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -2, -59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water4" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 59, -2, 0 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water5" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 59, -2, 59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water6" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 59, -2, -59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water7" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -59, -2, 0 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water8" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -59, -2, 59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Water9" type="MeshInstance" parent="Underwater"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -59, -2, -59 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 1 )
+
+[node name="Ground" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+
+[node name="Rocks" type="MeshInstance" parent="Ground"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Submarine2" parent="." instance=ExtResource( 1 )]
+
+[node name="CameraRotator" type="Spatial" parent="."]
+
+[node name="CameraTilter" type="Spatial" parent="CameraRotator"]
+
+[node name="Camera" type="Camera" parent="CameraRotator/CameraTilter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.353 )
+fov = 75.0
+near = 0.01
+far = 2000.0
+script = ExtResource( 2 )
+
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Telemetry" type="RichTextLabel" parent="GUI"]
+margin_left = 9.0
+margin_top = 9.90968
+margin_right = 660.93
+margin_bottom = 1236.91
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.701961 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = " 
+ Time: 0 s 
+ Depth: 0m
+ Heading: 0 deg
+ Pitch: 0 deg
+ Roll: 0 deg
+
+ R_Hover: 0%
+ L_Hover: 0%
+ R_Forward: 0%
+ L_Forward: 0%
+
+ Air Pressure: 0 bar
+ Air Temp: 0 deg
+ CPU Temp: 0 deg
+
+ Batt Voltage: 0 V"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI/Telemetry"]
+show_behind_parent = true
+anchor_left = -0.013
+anchor_right = 0.666
+anchor_bottom = 0.385
+margin_left = 9.47509
+margin_top = 35.0
+margin_right = -65.1854
+margin_bottom = 240.605
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timeline" type="HSlider" parent="GUI"]
+anchor_left = 0.201
+anchor_right = 1.0
+anchor_bottom = 0.002
+margin_left = 0.0999756
+margin_top = 34.0
+margin_right = -42.0
+margin_bottom = 51.88
+rect_pivot_offset = Vector2( 334.709, 30 )
+max_value = 1000.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxDepth" type="HSlider" parent="GUI"]
+anchor_left = 0.204
+anchor_right = 1.0
+margin_left = -46.8972
+margin_top = 17.2703
+margin_right = -0.297241
+margin_bottom = 33.2703
+rect_pivot_offset = Vector2( 334.709, 30 )
+custom_icons/grabber_disabled = ExtResource( 6 )
+custom_styles/slider = SubResource( 6 )
+max_value = 1000.0
+value = 1000.0
+editable = false
+scrollable = false
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Open" type="Button" parent="GUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -8.18948
+margin_top = -67.6608
+margin_right = 155.811
+margin_bottom = -14.6609
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 109.226, 52.9999 )
+custom_fonts/font = ExtResource( 4 )
+text = "Open File"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="GUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -103.102
+margin_top = -68.2245
+margin_right = -29.1019
+margin_bottom = -15.2246
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 109.226, 52.9999 )
+custom_fonts/font = ExtResource( 4 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="GUI"]
+visible = true
+anchor_left = 0.503751
+anchor_top = 0.5
+anchor_right = 0.503751
+anchor_bottom = 0.5
+margin_left = -587.306
+margin_top = -362.0
+margin_right = 580.694
+margin_bottom = 333.0
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.txt" )
+current_dir = "/Users/vidri/Desktop/Godot/Workspace/DiveVisualizer"
+current_path = "/Users/vidri/Desktop/Godot/Workspace/DiveVisualizer/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 9 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 0.757659, 0.503287, -0.415517, 0.633934, -0.41613, 0.651893, 0.15518, -0.757323, -0.634335, -0.0487633, 16.0945, -0.736719 )
+light_color = Color( 0.972549, 0.941176, 0.870588, 1 )
+light_energy = 1.5
+light_indirect_energy = 0.0
+light_specular = 1.0
+shadow_enabled = true
+
+[node name="Water" type="Spatial" parent="."]
+
+[node name="WaterShader" type="MeshInstance" parent="Water"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 3 )
+
+[node name="WaterGrid" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, -0.003, 0 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid2" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, -0.003, -59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid3" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, -0.003, 59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid4" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 59, -0.003, 0 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid5" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 59, -0.003, -59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid6" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 59, -0.003, 59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid7" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, -59, -0.003, 0 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid8" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, -59, -0.003, -59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+
+[node name="WaterGrid9" type="MeshInstance" parent="Water"]
+transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, -59, -0.003, 59 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 5 )
+[connection signal="pressed" from="GUI/Open" to="GUI" method="_on_Button_pressed"]
+[connection signal="pressed" from="GUI/Exit" to="GUI" method="_on_Exit_pressed"]
+[connection signal="file_selected" from="GUI/FileDialog" to="GUI" method="_on_FileDialog_file_selected"]

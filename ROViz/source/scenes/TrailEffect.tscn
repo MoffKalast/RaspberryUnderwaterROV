@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Trail/trail_3d.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+params_cull_mode = 2
+albedo_color = Color( 1, 0.470588, 0, 1 )
+
+[node name="ImmediateGeometry" type="ImmediateGeometry"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040845, 0.0336819, 0.401698 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+script = ExtResource( 1 )
+distance = 0.25
+segments = 3000
+lifetime = 10000.0
+base_width = 0.015
+smoothing_iterations = 2
+wireframe_color = Color( 0, 0, 0, 1 )

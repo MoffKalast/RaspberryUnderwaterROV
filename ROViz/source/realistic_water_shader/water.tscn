@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://realistic_water_shader/art/water/Water.shader" type="Shader" id=3]
+[ext_resource path="res://realistic_water_shader/art/water/Foam.png" type="Texture" id=4]
+[ext_resource path="res://realistic_water_shader/art/water/Water.material" type="Material" id=5]
+[ext_resource path="res://realistic_water_shader/art/water/Water_N_A.png" type="Texture" id=6]
+[ext_resource path="res://realistic_water_shader/art/water/Water_UV.png" type="Texture" id=7]
+[ext_resource path="res://realistic_water_shader/art/water/Water_N_B.png" type="Texture" id=8]
+[ext_resource path="res://realistic_water_shader/art/water/Caustic.png" type="TextureArray" id=12]
+
+[sub_resource type="PlaneMesh" id=2]
+material = ExtResource( 5 )
+size = Vector2( 128, 128 )
+subdivide_width = 256
+subdivide_depth = 256
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/wave_speed = 0.001
+shader_param/wave_a = Plane( 1, 0.4, 0.2, 0.1 )
+shader_param/wave_b = Plane( 0.4, 1, -0.3, 0.1 )
+shader_param/wave_c = Plane( -1, -0.8, 0.5, 0.1 )
+shader_param/sampler_scale = Vector2( 0.2, 0.2 )
+shader_param/sampler_direction = Vector2( 0.05, 0.04 )
+shader_param/uv_sampler_scale = Vector2( 0.25, 0.25 )
+shader_param/uv_sampler_strength = 0.04
+shader_param/foam_level = 0.0
+shader_param/refraction = -0.021
+shader_param/color_deep = Color( 0.835294, 0.909804, 1, 1 )
+shader_param/color_shallow = Color( 0.803922, 0.937255, 1, 1 )
+shader_param/beers_law = 0.279
+shader_param/depth_offset = 0.1
+shader_param/projector = Transform( 0.81, 0.493, -0.317, 0.558, -0.481, 0.676, 0.18, -0.725, -0.665, -0.137, 16.094, 0.317 )
+shader_param/uv_sampler = ExtResource( 7 )
+shader_param/normalmap_a_sampler = ExtResource( 6 )
+shader_param/normalmap_b_sampler = ExtResource( 8 )
+shader_param/foam_sampler = ExtResource( 4 )
+shader_param/caustic_sampler = ExtResource( 12 )
+
+[node name="Main" type="Node"]
+
+[node name="Water" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 5 )
+
+[node name="Water2" type="MeshInstance" parent="."]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )

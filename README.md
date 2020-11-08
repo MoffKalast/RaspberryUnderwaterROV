@@ -10,11 +10,13 @@ It uses a Raspberry Pi 2 as its central control unit, a Pi Camera V2 (later with
 
 ![Electronics](/_schematics/RpiElectric5.png)
 
-The repository is divided into two parts:
+The repository is divided into three parts:
 
 - **/Submarine** which contains a NodeJS implementation of the submarine control software, along with video streaming and sensor AHRS, interfacting with the app using Socket.io
 
 - **/ROVCommander** which is a Unity mobile app that allows for ease of control from a beach or boat
+
+- **/ROViz** that contains the telemetry visualization application written in Godot (project source + exported Win64 binary)
 
 See the subfolder README files for more information on each.
 

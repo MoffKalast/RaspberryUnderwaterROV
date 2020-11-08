@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://models/full.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Submarine.gd" type="Script" id=2]
+[ext_resource path="res://scenes/TrailEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GPUParticles.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.834146, 1 )
+colors = PoolColorArray( 0.303711, 0.303711, 0.303711, 1, 0.0732422, 0.0732422, 0.0732422, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 30.52
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+radial_accel_random = 0.05
+tangential_accel = -300.0
+tangential_accel_random = 1.0
+damping = 50.0
+angle_random = 0.3
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 30.52
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -15.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+radial_accel_random = 0.05
+tangential_accel = 300.0
+tangential_accel_random = 1.0
+damping = 50.0
+angle_random = 0.3
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 30.52
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+radial_accel_random = 0.05
+tangential_accel = -300.0
+tangential_accel_random = 1.0
+damping = 50.0
+angle_random = 0.3
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 30.52
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -15.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+radial_accel_random = 0.05
+tangential_accel = 300.0
+tangential_accel_random = 1.0
+damping = 50.0
+angle_random = 0.3
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="subroot" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sub" parent="." index="0"]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.0369919, 0, 0 )
+
+[node name="RearRight" parent="." index="1"]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.115463, 0.0141611, 0.23321 )
+
+[node name="FrontRight" parent="." index="2"]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.119389, 0.0270687, -0.0481623 )
+
+[node name="FrontLeft" parent="." index="3"]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.119637, 0.0271564, -0.048149 )
+
+[node name="RearLeft" parent="." index="4"]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.115077, 0.014162, 0.233197 )
+
+[node name="RearLeftEmitter" parent="." index="5" instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.115191, 0.00694418, 0.23275 )
+emitting = false
+visibility_aabb = AABB( -0.123876, -0.0271441, -0.141456, 0.247752, 0.0913983, 0.293655 )
+process_material = SubResource( 5 )
+
+[node name="RearRightEmitter" parent="." index="6" instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.117952, 0.00694418, 0.23275 )
+emitting = false
+visibility_aabb = AABB( -0.123876, -0.00550342, -0.141456, 0.247752, 0.0481169, 0.293655 )
+process_material = SubResource( 6 )
+
+[node name="FrontLeftEmitter" parent="." index="7" instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.115191, 0.0274793, -0.0466307 )
+emitting = false
+visibility_aabb = AABB( -0.123876, -0.0151181, -0.141456, 0.247752, 0.0673464, 0.293655 )
+process_material = SubResource( 7 )
+
+[node name="FrontRightEmitter" parent="." index="8" instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.117952, 0.0274793, -0.0466307 )
+emitting = false
+visibility_aabb = AABB( -0.123876, -0.0154278, -0.141456, 0.247752, 0.0679656, 0.293655 )
+process_material = SubResource( 8 )
+
+[node name="ImmediateGeometry" parent="." index="9" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
